@@ -11,21 +11,22 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javax.inject.Inject;
 import javax.inject.Provider;
 
 @ContextConfiguration(classes = { ApplicationConfiguration.class })
 @Test
 public class ApplicationConfigurationTest extends AbstractTestNGSpringContextTests {
 
-    @Autowired
+    @Inject
     @SystemUniqueId(UniqueType.GUID)
     Processor<String> guidProcessor;
 
-    @Autowired
+    @Inject
     @SystemComponent(value = "dayOfWeekProcessor")
     Processor<Boolean> dayOfWeekProcessor;
 
-    @Autowired
+    @Inject
     @SystemComponent(value = "systemDate")
     Provider<LocalDate> systemDate;
 
